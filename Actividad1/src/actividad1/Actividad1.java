@@ -16,8 +16,9 @@ public class Actividad1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //SUMA DE 2 NUMEROS Y MOSTRARLOS POR CONSOLA
         // TODO code application logic here
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);//Para escribir
     int num1,num2,total;
     
     System.out.println("Introduce 2 numeros para sumar");//Aqui le pido que introduzca los 2 numeros que quiero sumar

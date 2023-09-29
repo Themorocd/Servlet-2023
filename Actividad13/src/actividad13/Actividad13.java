@@ -27,7 +27,7 @@ public class Actividad13 {
         boolean notasrellenas = false;
         int opc;
         do {            
-             System.out.println("-----MENU--------");
+        System.out.println("-----MENU--------");
         System.out.println("1.-Rellenar notas");
         System.out.println("2.-Media de la nota del alumno");
         System.out.println("3.-Media de la nota de la actividad");
@@ -38,7 +38,7 @@ public class Actividad13 {
         opc = sc.nextInt();
             switch (opc) {
                 case 1:
-                    rellenarnotas(alumno,asignaturas,notas,sc);
+                    llenarnotas(alumno,asignaturas,notas,sc);
                     notasrellenas = true;                  
                     break;
                 case 2:
@@ -71,7 +71,7 @@ public class Actividad13 {
         
     }
 
-    private static void rellenarnotas(String[] alumno, String[] asignaturas, int[][] notas, Scanner sc) {
+    private static void llenarnotas(String[] alumno, String[] asignaturas, int[][] notas, Scanner sc) {
         System.out.println("Estas en Rellenar notas");
                      for (int x = 0; x < notas.length; x++) {
                         for (int i = 0; i < notas[x].length; i++) {

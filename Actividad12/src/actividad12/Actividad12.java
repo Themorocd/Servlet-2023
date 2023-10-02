@@ -15,8 +15,8 @@ public class Actividad12 {
     /**
      * @param args the command line arguments
      */
-    private static String[] productos = {"Chips", "Chocolate", "Galletas", "Caramelos"};
-    private static double[] precios = {1.5, 2.0, 1.0, 0.75};
+    private static String[] productos = {"POPGALLETA", "POPLIMON", "POPTARTAQUESO", "POPUVA"};
+    private static double[] precios = {7, 5, 8, 10};
     private static int[] stock = {10, 10, 10, 10}; // Cantidad inicial de cada producto en stock
     private static final String pass = "admin123"; // Clave para reponer el stock
     
@@ -24,7 +24,7 @@ public class Actividad12 {
         // TODO code application logic here
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("¡Bienvenido a la Máquina de Golosinas!");
+        System.out.println("¡Bienvenido a la Máquina de POPS!");
         while (true) {
             System.out.println("\nMenú de productos:");
             for (int i = 0; i < productos.length; i++) {
@@ -35,7 +35,7 @@ public class Actividad12 {
             int seleccion = scanner.nextInt();
 
             if (seleccion == 0) {
-                System.out.println("Gracias por utilizar la Máquina de Golosinas. ¡Hasta luego!");
+                System.out.println("Gracias por utilizar la Máquina de POPS. ¡Hasta luego!");
                 break;
             } else if (seleccion == 99) {
                 System.out.print("Por favor, ingrese la clave para reponer el stock: ");

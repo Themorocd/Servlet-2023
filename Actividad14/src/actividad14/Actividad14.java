@@ -19,92 +19,79 @@ public class Actividad14 {
         // TODO code application logic here
         Scanner teclado = new Scanner (System.in);
         
-        int [] jugador1 = new int[4];
-        int [] jugador2 = new int[4];
-        int [] jugador3 = new int[4];
-        int [] juez = new int[2];
+      int[] jugador1 = new int[4];
+        int[] jugador2 = new int[4];
+        int[] jugador3 = new int[4];
+
+        ingresarNumeros(teclado, jugador1, "Jugador 1");
+        ingresarNumeros(teclado, jugador2, "Jugador 2");
+        ingresarNumeros(teclado, jugador3, "Jugador 3");
+
+        // Juez
+        int[] juez = new int[2];
+        ingresarNumeros(teclado, juez, "Juez");
+
+        // Calcular aciertos y verificar números en el rango del juez
+        int aciertosJugador1 = calcularAciertos(jugador1, juez);
+        int aciertosJugador2 = calcularAciertos(jugador2, juez);
+        int aciertosJugador3 = calcularAciertos(jugador3, juez);
+
+        System.out.println("Jugador 1 aciertos: " + aciertosJugador1);
+        System.out.println("Jugador 2 aciertos: " + aciertosJugador2);
+        System.out.println("Jugador 3 aciertos: " + aciertosJugador3);
+
+        int maxAciertos = Math.max(aciertosJugador1, Math.max(aciertosJugador2, aciertosJugador3));
+        int ganador = -1;
+
+        if (aciertosJugador1 == maxAciertos) {
+            ganador = 1;
+        }
+
+        if (aciertosJugador2 == maxAciertos) {
+            ganador = 2;
+        }
+
+        if (aciertosJugador3 == maxAciertos) {
+            ganador = 3;
+        }
+
+        if (ganador != -1) {
+            System.out.println("El ganador es el Jugador " + ganador + " con " + maxAciertos + " aciertos.");
+        } else {
+            System.out.println("Empate. No hay ganador.");
+        }
+
         
-        for (int x = 0; x < 4; x++) {
-            int numeros; 
-            do{
-                System.out.println("Jugador 1 ingresa el numero "+ (x+1)+ ":");
-                numeros = teclado.nextInt();
-            }while(numeros <1 || numeros> 10);
-            jugador1[x] = numeros;
-            
-        }
-         for (int x = 0; x < 4; x++) {
-            int numeros; 
-            do{
-                System.out.println("Jugador 2 ingresa el numero "+ (x+1)+ ":");
-                numeros = teclado.nextInt();
-            }while(numeros <1 || numeros> 10);
-            jugador2[x] = numeros;
-            
-        }
-          for (int x = 0; x < 4; x++) {
-            int numeros; 
-            do{
-                System.out.println("Jugador 3 ingresa el numero "+ (x+1)+ ":");
-                numeros = teclado.nextInt();
-            }while(numeros <1 || numeros> 10);
-            jugador3[x] = numeros;
-            
-        }
-          
-         for (int x = 0; x < 2; x++) {
-            int numeros; 
-            do{
-                System.out.println("Seleccione 2 numeros entre el 1 y el 10");
-                numeros = teclado.nextInt();
-            }while(numeros <1 || numeros> 10);
-            juez[x] = numeros;
-            
-        }
-           
-          
-          int aciertosjugador1 = calculoaciertos(jugador1,juez);
-          int aciertosjugador2 = calculoaciertos(jugador1,juez);
-          int aciertosjugador3 = calculoaciertos(jugador1,juez);
-          int maxaciertos = Math.max(aciertosjugador1, Math.max(aciertosjugador2, aciertosjugador3));
-          int ganador = -1;
-          
-          System.out.println("Jugador 1 aciertos :"+aciertosjugador1);
-          System.out.println("Jugador 2 aciertos :"+aciertosjugador2);
-          System.out.println("Jugador 3 aciertos :"+aciertosjugador3);
-          
-         if(aciertosjugador1 > maxaciertos){
-             maxaciertos = aciertosjugador1;
-             ganador = 1;
-         }
-         if(aciertosjugador2 > maxaciertos){
-             maxaciertos = aciertosjugador1;
-             ganador = 2;
-         }
-         if(aciertosjugador3 > maxaciertos){
-             maxaciertos = aciertosjugador1;
-             ganador = 3;
-         }
-         
-        if(ganador!= -1){
-            System.out.println("El ganador es el jugador: "+ganador+" con: "+maxaciertos+" aciertos");
-        }else{
-            System.out.println("No hay ganadores");
-        }
-       
     }
 
-    private static int calculoaciertos(int[] jugador, int[] juez) {
-        int acierto = 0;
-        int minRango = Math.min(juez[0], juez[1]);
-        int maxRango = Math.max(juez[0], juez[1]);
+    // Método para ingresar los números para un jugador o el juez
+    static void ingresarNumeros(Scanner scanner, int[] jugador, String nombreJugador) {
+        System.out.println(nombreJugador + ", ingrese " + jugador.length + " números del 1 al 10 separados por espacios:");
+        String input = scanner.nextLine();
+        String[] partes = input.split(" ");
 
-        for (int numero : jugador) {
-            if (numero >= minRango && numero <= maxRango) {
-                acierto++;
+        for (int i = 0; i < jugador.length; i++) {
+            int numero = Integer.parseInt(partes[i]);
+            if (numero >= 1 && numero <= 10) {
+                jugador[i] = numero;
             }
         }
-        return acierto;
+    }
+
+    // Método para calcular la cantidad de aciertos entre un jugador y el juez
+    static int calcularAciertos(int[] jugador, int[] juez) {
+        int aciertos = 0;
+
+        for (int numeroJugador : jugador) {
+            for (int numeroJuez : juez) {
+                if (numeroJugador == numeroJuez) {
+                    aciertos++;
+                    break;
+                }
+            }
+        }
+
+        return aciertos;
     }
 
    

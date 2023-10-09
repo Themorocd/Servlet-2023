@@ -39,7 +39,7 @@ public class Actividad16 {
                 System.out.print("Contenido en proteínas (%): ");
                 alimento.Proteinas = Double.parseDouble(sc.nextLine());
 
-                break; // Salir del bucle si se ingresan valores válidos
+                break; // Salir del bucle si se ingresan valores correctos
             } catch (NumberFormatException e) {
                 System.out.println("Por favor, ingrese valores numéricos válidos para lípidos, hidratos y proteínas.");
             }
@@ -54,7 +54,7 @@ public class Actividad16 {
             String contenidoMineralesVitaminasInput = sc.nextLine().trim().toUpperCase();
             if (contenidoMineralesVitaminasInput.equals("A") || contenidoMineralesVitaminasInput.equals("M") || contenidoMineralesVitaminasInput.equals("B")) {
                 alimento.MineralesVitaminas = contenidoMineralesVitaminasInput.charAt(0);
-                break; // Salir del bucle si se ingresa un valor válido
+                break; // Salir del bucle si se ingresa un valor correcto
             } else {
                 System.out.println("Por favor, ingrese un valor válido para minerales y vitaminas (A/M/B).");
             }

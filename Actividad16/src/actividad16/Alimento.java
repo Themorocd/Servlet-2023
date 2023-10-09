@@ -25,7 +25,7 @@ class Alimento {
         this.Hidratos = Hidratos;
         this.Proteinas = Proteinas;
         this.Animal = Animal;
-        this.MineralesVitaminas = MineralesVitaminas;
+        this.MineralesVitaminas = MineralesVitaminas;                                                                                                                                                                                                                                                                                                   
     }
     
 }

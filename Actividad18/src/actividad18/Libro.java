@@ -42,7 +42,7 @@ class Libro {
         System.out.println("Tipo de formato: "+formato);
         System.out.println(librorecomendable());
         System.out.println(librovistoso());
-        System.out.println("Nacionalidad del autor: ");
+        System.out.println("Nacionalidad del autor: "+nacionalidad);
         System.out.println("Precio en tinta es de "+preciotinta());
     }
 

@@ -75,7 +75,7 @@ public class Actividad18 {
          while (true) {            
              System.out.println("Tipo de formato: (I/i o Ma/ma o Me/me");
              String tipoformato = sc.nextLine().trim().toUpperCase();
-             if((tipoformato.equals("I") || (tipoformato.equals("Ma") || tipoformato.equals("Me")))){
+             if((tipoformato.equals("I") || (tipoformato.equals("MA") || tipoformato.equals("ME")))){
              libro.formato = tipoformato;
              break;
         }else{
@@ -84,7 +84,7 @@ public class Actividad18 {
         }
         
         
-        
+        libro.monstrarLibro();
         
     }
     

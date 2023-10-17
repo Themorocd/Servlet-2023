@@ -13,13 +13,13 @@ import java.util.Random;
 class Informe {
     
     String nombre, metabolismo, vida;
-    boolean esdeportista;
+    String esdeportista;
     int caldesayuno,calalmuerzo,calcena;
 
     public Informe() {
     }
 
-    public Informe(String nombre, String metabolismo, String vida, boolean esdeportista, int caldesayuno, int calalmuerzo, int calcena) {
+    public Informe(String nombre, String metabolismo, String vida, String esdeportista, int caldesayuno, int calalmuerzo, int calcena) {
         this.nombre = nombre;
         this.metabolismo = metabolismo;
         this.vida = vida;
@@ -50,12 +50,17 @@ class Informe {
         return totalCalorias / 500; // Considerando que 1 cal equivale a 500 centimos de euro
     }
         public void mostrarInforme(int totalCalorias) {
+        if(esdeportista.equalsIgnoreCase("SI")){
         System.out.println("Es deportista y lleva una vida " + vida.toLowerCase() + ", además tiene un metabolismo " + metabolismo.toLowerCase() + ".");
+        } else{
+            System.out.println("No es deportista y lleva una vida " + vida.toLowerCase() + ", además tiene un metabolismo " + metabolismo.toLowerCase() + ".");
+        }
         if (desayunosalud()) {
             System.out.println("Ha comido un saludable desayuno.");
         } else {
             System.out.println("No ha comido un saludable desayuno.");
         }
+        
 
         if (dietaSana(totalCalorias)) {
             System.out.println("Lleva una dieta sana.");

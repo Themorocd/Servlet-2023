@@ -24,7 +24,7 @@ public class Actividad19 {
             informe[x] = new Informe();
             System.out.println("Número de persona: Persona " + (x + 1));
             System.out.println("¿Es deportista?");
-            informe[x].esdeportista = sc.nextLine().equalsIgnoreCase("si");
+            informe[x].esdeportista = sc.nextLine().toUpperCase();
             System.out.println("Que tipo de metabolismo tiene: Alto (A), Medio (M) o Bajo (B)?");
             informe[x].metabolismo = sc.nextLine().toUpperCase();
             System.out.println("Qué hábitos de vida lleva: Sedentaria (S), Activa (A) o Muy activa (MA)?");

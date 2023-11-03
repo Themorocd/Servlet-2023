@@ -10,6 +10,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+         <h1><b>Tabla de Multiplicar</b></h1>
+        
+        <form method="post" action="servlet1">
+            <table>
+                <tr>
+                    <td>Introduce un numero: </td>
+                    <td><input type="number" name="num"></td>
+                </tr>
+                <tr>
+                    <td>Introduce un color </td>
+                    <td><input type="text" name="color" ></td>
+                </tr>
+                
+            </table><br>
+            
+            <!--<!--Botones de envío y reset del formulario-->
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Borrar">
+            
+        </form>
     </body>
 </html>

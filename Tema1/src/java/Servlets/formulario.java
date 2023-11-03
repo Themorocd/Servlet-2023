@@ -6,6 +6,7 @@ package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -63,7 +64,7 @@ public class formulario extends HttpServlet {
         
        out.println("<table border=\"4\">");
        
-        out.println("<tr><td><b>Host:</b></td><td><i>"+request.getHeader("host")+"</i></td></tr>");
+        /*out.println("<tr><td><b>Host:</b></td><td><i>"+request.getHeader("host")+"</i></td></tr>");
         out.println("<tr><td><b>User-agent:</b></td><td><i>"+request.getHeader("user-agent")+"</i></td></tr>");
         out.println("<tr><td><b>Accept:</b></td><td><i>"+request.getHeader("accept")+"</i></td></tr>");
         out.println("<tr><td><b>Accept-language:</b></td><td><i>"+request.getHeader("accept-language")+"</i></td></tr>");
@@ -73,7 +74,16 @@ public class formulario extends HttpServlet {
         out.println("<tr><td><b>Referer:</b></td><td><i>"+request.getHeader("referer")+"</i></td></tr>");
         out.println("<tr><td><b>Content-type:</b></td><td><i>"+request.getHeader("content-type")+"</i></td></tr>");
         out.println("<tr><td><b>Content-lenght:</b></td><td><i>"+request.getHeader("content-length")+"</i></td></tr>");
-
+        */
+        Enumeration e = request.getHeaderNames();//Esta línea obtiene todos los nombres de los encabezados de la solicitud HTTP y los almacena en un objeto Enumeration. Cada elemento de este Enumeration es el nombre de un encabezado.
+        while(e.hasMoreElements()){//Este bucle while se ejecuta mientras hay más elementos en el Enumeration.
+            
+            String headerName = (String) e.nextElement();//Esta línea obtiene el siguiente nombre de encabezado de la solicitud y lo almacena en la variable headerName.
+            String headerValue = request.getHeader(headerName);//Aquí se obtiene el valor del encabezado correspondiente al nombre del encabezado que acabamos de obtener. La función getHeader(String name) de HttpServletRequest se utiliza para obtener el valor de un encabezado específico.
+            out.println("<tr><td><b>"+headerName+"</b></td><td><i>"+headerValue+"</i></td></tr>");/*Esta línea imprime el nombre y el valor del encabezado en una fila de una tabla HTML. El nombre se imprime en negrita (<b>) dentro de una celda de la tabla (<td>), 
+            mientras que el valor se imprime en cursiva (<i>) dentro de otra celda de la tabla. La etiqueta <tr> representa una fila en la tabla.*/
+            
+        }
         
         out.println("</table>");
         out.println("</body>");

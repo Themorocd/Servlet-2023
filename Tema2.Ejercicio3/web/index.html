@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Encuesta Privada</h1>
+        <h2>Rellena los datos indicados y pulsa enviar</h2>
+
+        <form method="post" action="servlet1">
+            <table border="5px">
+                <tr>
+                    <td>Introduce tu nombre </td>
+                    <td><input type="text" name="nombre"></td>
+                </tr>
+                <tr>
+                    <td>Introduce tus apellidos </td>
+                    <td><input type="text" name="apellidos" ></td>
+                </tr>
+                <tr>
+                    <td>Introduce tu numero de telefono </td>
+                    <td><input type="tel" name="telefono" ></td>
+                </tr>
+                <tr>
+                    <td>Introduce tu ciudad de nacimiento </td>
+                    <td><input type="text" name="nacimiento" ></td>
+                </tr>
+
+                <tr>
+                    <td><label>Sexo:</label><br></td>
+
+                    <td><input type="radio" id="masculino" name="genero" value="masculino">
+                        <label for="masculino">Masculino</label><br>
+                    </td>
+                    <td>
+                        <input type="radio" id="femenino" name="genero" value="femenino">
+                        <label for="femenino">Femenino</label><br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="origen">Selecciona tu pais de origen:</label></td>
+
+                    <td><select name="origen" id="origen">
+                            <option value="Argentina">Argentina</option>
+                            <option value="España">España</option>
+                            <option value="Francia">Francia</option>
+                        </select>
+                        
+                    </td>
+                    
+                </tr>
+
+                <tr>
+                    <td>
+                        <br><label>Selecciona tus actividades de ocio favoritas:</label><br><br>
+                        <input type="checkbox" id="Parapente" name="ocio" value="Parapente">
+                        <label for="Parapente">Parapente</label><br>
+
+                        <input type="checkbox" id="Ala delta" name="ocio" value="Ala delta">
+                        <label for="Ala delta">Ala delta</label><br>
+
+                        <input type="checkbox" id="submanirismo" name="ocio" value="submanirismo">
+                        <label for="submanirismo">submanirismo</label><br>
+
+                        <input type="checkbox" id="esqui" name="ocio" value="esqui">
+                        <label for="esqui">esqui</label><br><br>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <label>Comentarios sobre la pagina:</label><br><br>
+                        <input type="<textarea id="area" name="texto" rows="20" cols="20">
+                    </td>
+                </tr>
+
+            </table><br>
+
+            <!--<!--Botones de envío y reset del formulario-->
+            <input type="submit" value="Enviar Encuesta"><br>
+            <input type="reset" value="Borrar">
+
+        </form>
+    </body>
+</html>

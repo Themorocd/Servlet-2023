@@ -17,25 +17,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <table border="5px">
                 <tr>
                     <td>Introduce tu nombre </td>
-                    <td><input type="text" name="nombre"></td>
+                    <td><input type="text" name="nombre" pattern="[A-Za-z ]+" required></td>
                 </tr>
                 <tr>
                     <td>Introduce tus apellidos </td>
-                    <td><input type="text" name="apellidos" ></td>
+                    <td><input type="text" name="apellidos" pattern="[A-Za-z ]+" required></td>
                 </tr>
                 <tr>
                     <td>Introduce tu numero de telefono </td>
-                    <td><input type="tel" name="telefono" ></td>
+                    <td><input type="tel" name="telefono" pattern="[0-9]{9}" required></td>
                 </tr>
                 <tr>
                     <td>Introduce tu ciudad de nacimiento </td>
-                    <td><input type="text" name="nacimiento" ></td>
+                    <td><input type="text" name="nacimiento" pattern="[A-Za-z]+" required></td>
                 </tr>
 
                 <tr>
                     <td><label>Sexo:</label><br></td>
 
-                    <td><input type="radio" id="masculino" name="genero" value="masculino">
+                    <td><input type="radio" id="masculino" name="genero" value="masculino" required>
                         <label for="masculino">Masculino</label><br>
                     </td>
                     <td>
@@ -77,7 +77,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <tr>
                     <td>
                         <label>Comentarios sobre la pagina:</label><br><br>
-                        <input type="<textarea id="area" name="texto" rows="20" cols="20">
+                        <input type="<textarea id="area" name="texto" rows="20" cols="20" required>
                     </td>
                 </tr>
 

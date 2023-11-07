@@ -4,9 +4,41 @@
         <servlet-name>servlet1</servlet-name>
         <servlet-class>Servlets.servlet1</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>servletformu</servlet-name>
+        <servlet-class>Servlets.servletformu</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>alumnado</servlet-name>
+        <servlet-class>Servlets.alumnado</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>profesorado</servlet-name>
+        <servlet-class>Servlets.profesorado</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Todos</servlet-name>
+        <servlet-class>Servlets.Todos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>servlet1</servlet-name>
         <url-pattern>/servlet1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>servletformu</servlet-name>
+        <url-pattern>/servletformu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>alumnado</servlet-name>
+        <url-pattern>/alumnado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>profesorado</servlet-name>
+        <url-pattern>/profesorado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Todos</servlet-name>
+        <url-pattern>/Todos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

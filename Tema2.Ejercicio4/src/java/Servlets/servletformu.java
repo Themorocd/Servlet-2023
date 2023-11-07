@@ -40,6 +40,10 @@ public class servletformu extends HttpServlet {
         String profe = request.getParameter("profe");
         String texto = request.getParameter("texto");
         
+        if(actividad == null){
+            rd = request.getRequestDispatcher("/Formulario.jsp");
+            rd.forward(request, response);
+        }else{
         Actividades actividades = new Actividades(name,lugar,fecha,hora,destino,curso,actividad,profe,texto,usuario);
          
         ArrayList<Actividades> act = (ArrayList<Actividades>) contexto.getAttribute("act");
@@ -65,7 +69,7 @@ public class servletformu extends HttpServlet {
         
         rd = request.getRequestDispatcher("/Formulario.jsp");
         rd.forward(request, response);
-        
+        }
     }
 
    

@@ -4,6 +4,7 @@
     Author     : Andres
 --%>
 
+
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Locale"%>
@@ -22,6 +23,7 @@
             ServletContext contexto = request.getServletContext();
             ArrayList<Actividades> actividade = (ArrayList<Actividades>) contexto.getAttribute("act");
             String tipolista = (String) contexto.getAttribute("tipolista");
+            
         %>
     </head>
     <body>

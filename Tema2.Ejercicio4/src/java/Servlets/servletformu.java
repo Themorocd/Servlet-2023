@@ -7,6 +7,7 @@ package Servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -45,7 +46,9 @@ public class servletformu extends HttpServlet {
             rd.forward(request, response);
         }else{
         Actividades actividades = new Actividades(name,lugar,fecha,hora,destino,curso,actividad,profe,texto,usuario);
-         
+        
+        
+        
         ArrayList<Actividades> act = (ArrayList<Actividades>) contexto.getAttribute("act");
         
         if(act == null){
@@ -53,7 +56,7 @@ public class servletformu extends HttpServlet {
         }
         
         act.add(actividades);
-        
+        Collections.sort(act);
         contexto.setAttribute("act", act);
         
         contexto.setAttribute("name", name);

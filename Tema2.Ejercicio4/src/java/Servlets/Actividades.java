@@ -4,11 +4,15 @@
  */
 package Servlets;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author Andres
  */
-public class Actividades {
+public class Actividades implements Comparable<Actividades>{
     
     String name,lugar,fecha,hora,destino,curso,profe,texto,usuario;
     String[] actividad;
@@ -107,6 +111,20 @@ public class Actividades {
 
     public void setActividad(String[] actividad) {
         this.actividad = actividad;
+    }
+
+    @Override
+    public int compareTo(Actividades otrafec) {
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        try{
+            Date estafecha = formato.parse(this.getFecha());
+            Date otrafecha = formato.parse(otrafec.getFecha());
+            return estafecha.compareTo(otrafecha);
+        }catch (ParseException e) {
+             e.printStackTrace();
+        }
+        return 0;
+        
     }
 
    

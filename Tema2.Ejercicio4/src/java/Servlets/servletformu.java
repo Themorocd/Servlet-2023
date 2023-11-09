@@ -42,7 +42,7 @@ public class servletformu extends HttpServlet {
         String texto = request.getParameter("texto");
         
         if(actividad == null){
-            rd = request.getRequestDispatcher("/Formulario.jsp");
+            rd = request.getRequestDispatcher("/ErrorFormu.html");
             rd.forward(request, response);
         }else{
         Actividades actividades = new Actividades(name,lugar,fecha,hora,destino,curso,actividad,profe,texto,usuario);

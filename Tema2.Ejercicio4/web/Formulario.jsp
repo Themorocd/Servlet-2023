@@ -99,7 +99,7 @@
                     <td>
                         <input type="submit" value="Añadir actividad">
                         <input type="reset" name="Borrar actividad">
-                        <button value="tabla"><a href="TablaFormulario.jsp">Listado de actividades</button>
+                        <button value="tabla"><a href="Todos">Listado de actividades</button>
                     </td>
                 </tr>
 

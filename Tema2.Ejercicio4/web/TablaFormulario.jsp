@@ -52,6 +52,7 @@
                             if (tipolista.equals("Todos")) {
 
                 %>
+                
                 <tr>
                     <td><%= formattedDate %></td>
                     <td><%= acti.getHora()%></td>

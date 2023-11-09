@@ -4,9 +4,57 @@
         <servlet-name>Servlet1</servlet-name>
         <servlet-class>Servlets.Servlet1</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletFormulario</servlet-name>
+        <servlet-class>Servlets.ServletFormulario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Todos</servlet-name>
+        <servlet-class>Servlets.Todos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>alimenticias</servlet-name>
+        <servlet-class>Servlets.alimenticias</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Textil</servlet-name>
+        <servlet-class>Servlets.Textil</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>restauracion</servlet-name>
+        <servlet-class>Servlets.restauracion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>salud</servlet-name>
+        <servlet-class>Servlets.salud</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet1</servlet-name>
         <url-pattern>/Servlet1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletFormulario</servlet-name>
+        <url-pattern>/ServletFormulario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Todos</servlet-name>
+        <url-pattern>/Todos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>alimenticias</servlet-name>
+        <url-pattern>/alimenticias</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Textil</servlet-name>
+        <url-pattern>/Textil</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>restauracion</servlet-name>
+        <url-pattern>/restauracion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>salud</servlet-name>
+        <url-pattern>/salud</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

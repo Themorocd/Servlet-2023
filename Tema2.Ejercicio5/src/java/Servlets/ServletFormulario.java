@@ -71,7 +71,7 @@ public class ServletFormulario extends HttpServlet {
             rd.forward(request, response);
         } else if (compruenoCIF(cif) != true) {
             String errorcif = "errorcif";
-            contexto.setAttribute("tipoerror", errorcif);     
+            contexto.setAttribute("tipoerror", errorcif);
             rd = request.getRequestDispatcher("/Errores.jsp");
             rd.forward(request, response);
         } else if (compruebonif(nif) != true) {
@@ -89,9 +89,9 @@ public class ServletFormulario extends HttpServlet {
     }
 
     private boolean compruenoCIF(String cif) {
-
-        if (cif != null && cif.length() == 9) {
-
+        String sinespacios = cif.replace(" ", "");
+        if (sinespacios != null && sinespacios.length() == 9) {
+            
             String organizacion[] = {"A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "U", "V", "W"};
             String codigoprovincia[] = {"01", "02", "03", "53", "54", "04", "05", "06", "07", "57", "08", "58", "59", "60", "61", "62", "63", "64", "09",
                 "10", "11", "72", "12", "13", "14", "56", "15", "70", "16", "17", "55", "18", "19", "20", "71", "21", "22", "23",
@@ -99,10 +99,10 @@ public class ServletFormulario extends HttpServlet {
                 "32", "33", "74", "34", "35", "76", "36", "94", "37", "38", "75", "39", "40", "41", "91", "42", "43", "77", "44",
                 "45", "46", "96", "97", "98", "47", "48", "95", "49", "50", "99", "51", "52"};
 
-            String tiporganizacion = cif.substring(0, 1);
-            String digitoprovincia = cif.substring(1, 3);
-            String numerocorrelativo = cif.substring(3, 8);
-            String numerocontrol = cif.substring(8);
+            String tiporganizacion = sinespacios.substring(0, 1);
+            String digitoprovincia = sinespacios.substring(1, 3);
+            String numerocorrelativo = sinespacios.substring(3, 8);
+            String numerocontrol = sinespacios.substring(8);
 
             if (!Arrays.asList(organizacion).contains(tiporganizacion)) {
                 return false;
@@ -130,13 +130,14 @@ public class ServletFormulario extends HttpServlet {
     private boolean compruebonif(String nif) {
         boolean correcto = false;
         if (nif != null) {
+            String sinespacios = nif.replace(" ", "");
             char letras[] = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'};
 
-            nif = nif.toUpperCase();
+            sinespacios = sinespacios.toUpperCase();
 
-            int num = Integer.parseInt(nif.substring(0, 8));
+            int num = Integer.parseInt(sinespacios.substring(0, 8));
 
-            char letradni = nif.charAt(8);
+            char letradni = sinespacios.charAt(8);
 
             if (letradni == letras[num % 23]) {
                 return true;
@@ -151,12 +152,12 @@ public class ServletFormulario extends HttpServlet {
 
     private boolean compruebotelefono(String telefono) {
         boolean correcto = false;
-
-        if (telefono != null) {
-            if (telefono.length() != 9) {
+        String sinespacios = telefono.replace(" ", "");
+        if (sinespacios != null) {
+            if (sinespacios.length() != 9) {
                 return false;
             }
-            if (!telefono.matches("[0-9]+")) {
+            if (!sinespacios.matches("[0-9]+")) {
                 return false;
             }
             return true;

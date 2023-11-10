@@ -31,6 +31,16 @@
         %>
         <h1>Error en el telefono, intentelo de nuevo</h1>
         <%}%>
+        <% else if (tipoerror.equals("errornif") && tipoerror.equals(anObject)) {
+
+        %>
+
+        <h1>Error en el nif, intentelo de nuevo</h1>
+        <%} else if (tipoerror.equals("errortef")) {
+
+        %>
+        <h1>Error en el telefono, intentelo de nuevo</h1>
+        <%}%>
         <a href="Formulario.jsp"><button>Volver</button></a>
     </body>
 </html>

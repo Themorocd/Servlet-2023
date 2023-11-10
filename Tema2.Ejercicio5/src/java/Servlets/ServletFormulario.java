@@ -84,6 +84,26 @@ public class ServletFormulario extends HttpServlet {
             contexto.setAttribute("tipoerror", errortef);
             rd = request.getRequestDispatcher("/Errores.jsp");
             rd.forward(request, response);
+        } else if (compruenoCIF(cif) != true && compruebonif(nif) != true) {
+            String errorcifynif = "errorcifynif";
+            contexto.setAttribute("tipoerror", errorcifynif);
+            rd = request.getRequestDispatcher("/Errores.jsp");
+            rd.forward(request, response);
+        } else if (compruebonif(nif) != true && compruebotelefono(telefono) != true) {
+            String errortefynif = "errortefynif";
+            contexto.setAttribute("tipoerror", errortefynif);
+            rd = request.getRequestDispatcher("/Errores.jsp");
+            rd.forward(request, response);
+        } else if (compruebotelefono(telefono) != true && compruenoCIF(cif) != true) {
+            String errortefycif = "errortefycif";
+            contexto.setAttribute("tipoerror", errortefycif);
+            rd = request.getRequestDispatcher("/Errores.jsp");
+            rd.forward(request, response);
+        } else if(compruebonif(nif) != true && compruebotelefono(telefono) != true && compruenoCIF(cif) != true){
+            String errortefynifycif = "errortefynifycif";
+            contexto.setAttribute("tipoerror", errortefynifycif);
+            rd = request.getRequestDispatcher("/Errores.jsp");
+            rd.forward(request, response);
         }
 
     }

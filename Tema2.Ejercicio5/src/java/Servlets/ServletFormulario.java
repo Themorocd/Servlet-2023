@@ -70,13 +70,19 @@ public class ServletFormulario extends HttpServlet {
             rd = request.getRequestDispatcher("/Formulario.jsp");
             rd.forward(request, response);
         } else if (compruenoCIF(cif) != true) {
-            rd = request.getRequestDispatcher("/ErrorCif.html");
+            String errorcif = "errorcif";
+            contexto.setAttribute("tipoerror", errorcif);     
+            rd = request.getRequestDispatcher("/Errores.jsp");
             rd.forward(request, response);
         } else if (compruebonif(nif) != true) {
-            rd = request.getRequestDispatcher("/Errornif.html");
+            String errornif = "errornif";
+            contexto.setAttribute("tipoerror", errornif);
+            rd = request.getRequestDispatcher("/Errores.jsp");
             rd.forward(request, response);
         } else if (compruebotelefono(telefono) != true) {
-            rd = request.getRequestDispatcher("/Errortelefono.html");
+            String errortef = "errortef";
+            contexto.setAttribute("tipoerror", errortef);
+            rd = request.getRequestDispatcher("/Errores.jsp");
             rd.forward(request, response);
         }
 

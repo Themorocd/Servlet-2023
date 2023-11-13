@@ -15,7 +15,7 @@
         <%
             ServletContext contexto = request.getServletContext();
             //String tipoerror = (String) contexto.getAttribute("tipoerror");
-            List<String> errores = (List<String>) contexto.getAttribute("tipoerror");
+            ArrayList<String> errores = (ArrayList<String>) contexto.getAttribute("tipoerror");
             if(errores != null){
         %>
     </head>

@@ -43,7 +43,7 @@ public class ServletFormulario extends HttpServlet {
         compruebonif(nif);
         compruebotelefono(telefono);
 
-        List<String> errores = new ArrayList<>();
+        ArrayList<String> errores = new ArrayList<>();
 
         if (compruebonif(nif) == true && compruebotelefono(telefono) == true && compruenoCIF(cif) == true) {
             Empresa empresa = new Empresa(nombre, cif, representante, nif, sector, telefono, email, ventas, texto);

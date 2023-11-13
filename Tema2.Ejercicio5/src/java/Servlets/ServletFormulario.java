@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -42,6 +43,8 @@ public class ServletFormulario extends HttpServlet {
         compruebonif(nif);
         compruebotelefono(telefono);
 
+        List<String> errores = new ArrayList<>();
+
         if (compruebonif(nif) == true && compruebotelefono(telefono) == true && compruenoCIF(cif) == true) {
             Empresa empresa = new Empresa(nombre, cif, representante, nif, sector, telefono, email, ventas, texto);
 
@@ -69,7 +72,23 @@ public class ServletFormulario extends HttpServlet {
 
             rd = request.getRequestDispatcher("/Formulario.jsp");
             rd.forward(request, response);
-        } else if (compruenoCIF(cif) != true) {
+        } else {
+            if (compruebonif(nif) != true) {
+                errores.add("Error en el NIF");
+            }
+            if (compruebotelefono(telefono) != true) {
+                errores.add("Error en el Telefono");
+            }
+            if (compruenoCIF(cif) != true) {
+                errores.add("Error en el CIF");
+            }
+            if (!errores.isEmpty()) {
+                contexto.setAttribute("tipoerror", errores);
+                rd = request.getRequestDispatcher("/Errores.jsp");
+                rd.forward(request, response);
+            }
+        }
+        /*else if (compruenoCIF(cif) != true) {
             String errorcif = "errorcif";
             contexto.setAttribute("tipoerror", errorcif);
             rd = request.getRequestDispatcher("/Errores.jsp");
@@ -104,14 +123,15 @@ public class ServletFormulario extends HttpServlet {
             contexto.setAttribute("tipoerror", errortefynifycif);
             rd = request.getRequestDispatcher("/Errores.jsp");
             rd.forward(request, response);
-        }
+
+        }*/
 
     }
 
     private boolean compruenoCIF(String cif) {
         String sinespacios = cif.replace(" ", "");
         if (sinespacios != null && sinespacios.length() == 9) {
-            
+
             String organizacion[] = {"A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "U", "V", "W"};
             String codigoprovincia[] = {"01", "02", "03", "53", "54", "04", "05", "06", "07", "57", "08", "58", "59", "60", "61", "62", "63", "64", "09",
                 "10", "11", "72", "12", "13", "14", "56", "15", "70", "16", "17", "55", "18", "19", "20", "71", "21", "22", "23",

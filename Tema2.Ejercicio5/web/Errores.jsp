@@ -4,6 +4,8 @@
     Author     : Andres
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,35 +14,23 @@
         <title>JSP Page</title>
         <%
             ServletContext contexto = request.getServletContext();
-            String tipoerror = (String) contexto.getAttribute("tipoerror");
-
+            //String tipoerror = (String) contexto.getAttribute("tipoerror");
+            List<String> errores = (List<String>) contexto.getAttribute("tipoerror");
+            if(errores != null){
         %>
     </head>
     <body>
-        <%            if (tipoerror.equals("errorcif")) {
 
-        %>
-        <h1>Error en el cif, intentelo de nuevo</h1>
-        <%} else if (tipoerror.equals("errornif")) {
+        <ul aling="center">
+            <%                for (String error : errores) {
 
-        %>
 
-        <h1>Error en el nif, intentelo de nuevo</h1>
-        <%} else if (tipoerror.equals("errortef")) {
+            %>
+            <li><%=error%></li>
+                <%}}%>
+        </ul>
 
-        %>
-        <h1>Error en el telefono, intentelo de nuevo</h1>
-        <%}%>
-        <% else if (tipoerror.equals("errornif") && tipoerror.equals(anObject)) {
 
-        %>
-
-        <h1>Error en el nif, intentelo de nuevo</h1>
-        <%} else if (tipoerror.equals("errortef")) {
-
-        %>
-        <h1>Error en el telefono, intentelo de nuevo</h1>
-        <%}%>
         <a href="Formulario.jsp"><button>Volver</button></a>
     </body>
 </html>

@@ -33,6 +33,16 @@
             </thead>
             <tbody>
                 <%
+                if(entregadoDouble < precioDouble){
+                
+                %>
+                 <tr>
+                    <td>La cantidad entregada no es suficiente</th>
+                    
+                </tr>
+                <%}else{%>
+                <%
+                    
                     for (int x = 0; x < billetesmoneda.length; x++) {
                         int cantidad = (int) (cambiodevuelto / billetesmoneda[x]);
                         if (cantidad > 0) {
@@ -45,8 +55,9 @@
                     <%} else {%>
                     <td><%=cantidad%> monedas de <%=billetesmoneda[x]%>€</td>
                     <%}
+                         cambiodevuelto = cambiodevuelto - (cantidad * billetesmoneda[x]);
                             }
-                        }%>
+                        }}%>
                 </tr>
             </tbody>
         </table>

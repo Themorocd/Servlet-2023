@@ -1,7 +1,5 @@
-<%@page import="vista.Productos"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="BBDD.BD"%>
-
+<%@page import="vista.Productos"%>
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -47,30 +45,48 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <td colspan="7">
 
                     <table width="50%" border="0" align="center">
-                        <form action="Listadoventas1.jsp" method="post">
+                        <form action="Servletlistadoventas" method="post">
                             <tr align="center">
                                 <td colspan="2"><h3>Listado de ventas</h3></td>
                             </tr>
-                           
+                            <tr>
+                                
+                                <td align="center">
+                                    <label>Comercial</label>
+                                    <select id="comercial">
+                                        <option value="comer">Selecciona comercial</option>
+                                    </select>
+                                </td>
+                            </tr>
                             <tr>
                                 
                                 <td align="center">
                                     <label>Producto:</label>
-                                    <select id="pro" name="pro">
+                                    <select id="producto">
                                         <option value="producto">Selecciona un producto</option>
                                         <%
                                 
                                 for (Productos elem : productos) {
      
                                 %>
-                                        <option value="<%=elem.getReferencia()%>"><%=elem.getNombre()%></option>
+                                        <option value="producto"><%=elem.getNombre()%></option>
                                          <%}%>
                                     </select>
                                 </td>
                                    
                             </tr>
-                           
-                            
+                            <tr>
+                                <td align="center">
+                                    <label>Cantidad</label>
+                                    <input type="text" name="cantidad">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <label>fecha</label>
+                                    <input type="date" name="fecha">
+                                </td>
+                            </tr>
                             <tr>
                                 <td colspan="2" align="center">
                                     <input name="aceptar" type="submit" value="aceptar" />

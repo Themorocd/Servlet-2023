@@ -1,3 +1,4 @@
+<%@page import="vista.Comerciales"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="vista.Productos"%>
 <!DOCTYPE html>
@@ -11,9 +12,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Documento sin título</title>
         <%
+        String sql2 = "Select * from comerciales";
         String sql1 = "Select * from productos";
         ArrayList<Productos>productos = BBDD.BD.consultaProductos(sql1);
-       
+        ArrayList<Comerciales>comercial = BBDD.BD.consultaComerciales(sql2);
         %>
     </head>
 
@@ -45,7 +47,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <td colspan="7">
 
                     <table width="50%" border="0" align="center">
-                        <form action="Servletlistadoventas" method="post">
+                        <form action="ServletVentas" method="post">
                             <tr align="center">
                                 <td colspan="2"><h3>Listado de ventas</h3></td>
                             </tr>
@@ -53,8 +55,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                 
                                 <td align="center">
                                     <label>Comercial</label>
-                                    <select id="comercial">
+                                    <select id="comercial" name="comercial" required>
                                         <option value="comer">Selecciona comercial</option>
+                                        <%
+                                        
+                                        for (Comerciales elem : comercial) {
+                                                
+                                            
+                                        
+                                        %>
+                                        <option value="<%=elem.getCodigo() %>"><%= elem.getNombre()  %></option>
+                                        <%}%>
                                     </select>
                                 </td>
                             </tr>
@@ -62,14 +73,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                 
                                 <td align="center">
                                     <label>Producto:</label>
-                                    <select id="producto">
+                                    <select id="producto" name="producto" required>
                                         <option value="producto">Selecciona un producto</option>
                                         <%
                                 
                                 for (Productos elem : productos) {
      
                                 %>
-                                        <option value="producto"><%=elem.getNombre()%></option>
+                                        <option value="<%= elem.getReferencia() %>"><%=elem.getNombre()%>-<%= elem.getDescripcion() %></option>
                                          <%}%>
                                     </select>
                                 </td>
@@ -78,13 +89,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                             <tr>
                                 <td align="center">
                                     <label>Cantidad</label>
-                                    <input type="text" name="cantidad">
+                                    <input type="text" name="cantidad" pattern="[0-9 ]+" required>
                                 </td>
                             </tr>
                             <tr>
                                 <td align="center">
                                     <label>fecha</label>
-                                    <input type="date" name="fecha">
+                                    <input type="date" name="fecha" required>
                                 </td>
                             </tr>
                             <tr>

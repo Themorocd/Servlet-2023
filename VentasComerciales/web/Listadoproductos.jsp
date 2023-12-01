@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="vista.Productos"%>
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -8,6 +10,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Documento sin título</title>
+        <%
+        String sql1 = "Select * from productos";
+        ArrayList<Productos>productos = BBDD.BD.consultaProductos(sql1);
+        
+        %>
     </head>
 
     <body>
@@ -43,14 +50,45 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <tr>
                 <td colspan="7">
 
-                    <table width="50%" border="0" align="center">
-                        <form action="ServletLogin" method="post">
-                            <tr align="center">
-                                <td colspan="2"><h3></h3></td>
-                            </tr>
+                    <table width="50%" border="5px" align="center">
+                        <tr align="center">
+                            <td colspan="2"><h3>Listado de Productos</h3></td>
+                        </tr>
+
+                        <tr>
+                            <th>Referencia</th>
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
+                            <th>Precio</th>                           
+                            <th>Descuento</th>
+                            
+                            
+                        </tr>
+                         <%
+                        for (Productos elem : productos) {
+                                
+                            
+                        
+                        %>
+                        <tr>
+                           
+                            <td><%= elem.getReferencia()%></td>
+                            <td><%= elem.getNombre()%></td>
+                            <td><%= elem.getDescripcion()%></td>
+                            <td><%= elem.getPrecio()%></td>
+                            <td><%= elem.getDescuento()%></td>
+                            
+                        </tr>
+                        <%}%>
 
 
-                        </form>
+
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input name="aceptar" type="submit" value="aceptar" />
+                                <input name="cancelar" type="reset" value="cancelar" />
+                            </td>
+                        </tr>
                     </table>
 
 

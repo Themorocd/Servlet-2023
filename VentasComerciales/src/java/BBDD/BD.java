@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import vista.Comerciales;
 import vista.Productos;
 import vista.Ventas;
 
@@ -111,6 +112,91 @@ public class BD {
         }
 
         return venta;
+    }
+
+    public static ArrayList<Comerciales> consultaComerciales(String sql2) {
+
+        Connection cnn = null;
+        ArrayList<Comerciales> comercial = null;
+        try {
+            cnn = CrearConexion();
+
+            Comerciales come = null;
+
+            comercial = new ArrayList<Comerciales>();
+
+            PreparedStatement pst = cnn.prepareStatement(sql2);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                come = new Comerciales(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+                comercial.add(come);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(BD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return comercial;
+
+    }
+
+    public static boolean insertoDatos(String comercial, String producto, String cantidad, String fecha) {
+
+        Connection cnn = null;
+
+        try {
+            cnn = CrearConexion();
+
+            String sql = "Insert into ventas(codComercial,refProducto,cantidad,fecha) Values (?,?,?,?)";
+
+            PreparedStatement smt;
+            smt = cnn.prepareStatement(sql);
+            smt.setString(1, comercial);
+            smt.setString(2, producto);
+            smt.setString(3, cantidad);
+            smt.setString(4, fecha);
+
+            int rs = smt.executeUpdate();
+            if (rs > 0) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
+
+    }
+
+    public static boolean insertarProductos(String referencia, String nombre, String descripcion, String precio, String descuento) {
+
+        Connection cnn = null;
+
+        try {
+            cnn = CrearConexion();
+
+            String sql = "Insert into productos(referencia,nombre,descripcion,precio,descuento) Values (?,?,?,?,?)";
+            
+            PreparedStatement smt;
+            smt = cnn.prepareStatement(sql);
+            smt.setString(1, referencia);
+            smt.setString(2, nombre);
+            smt.setString(3, descripcion);
+            smt.setString(4, precio);
+            smt.setString(5, descuento);
+            
+            int filas = smt.executeUpdate();
+            
+            if (filas > 0) {
+                
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
+
     }
 
 }

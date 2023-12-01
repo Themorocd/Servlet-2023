@@ -1,7 +1,5 @@
-<%@page import="vista.Productos"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="BBDD.BD"%>
-
+<%@page import="vista.Productos"%>
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -32,12 +30,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <tr align="center">
                 <td>
                     <a href="pagina_ventas.jsp"><img src="img/ventas.jpg" width="180" height="123" /></a>
-                    <br />
-                    <a href="Listadoventas.jsp"><img src="img/listado-ventas.jpg" width="180" height="50" /></a>
-                    <br />
-                    <a href="Nuevaventa.jsp"><img src="img/nueva-venta.jpg" width="180" height="50" /></a>
+
                 </td>
-                <td><a href="pagina_productos.jsp"><img src="img/productos.jpg" width="180" height="123" /></a></td>
+                <td><a href="pagina_productos.jsp"><img src="img/productos.jpg" width="180" height="123" /></a>
+                <br />
+                <a href="Listadoproductos.jsp"><img src="img/listado-productos.jpg" width="180" height="50" /></a>
+                <br />
+                <a href="NuevoProdcuto.jsp"><img src="img/nuevo-producto.jpg" width="180" height="50" /></a>
+                <br />
+                <a href="Modificarproducto.jsp"><img src="img/modificar-producto.jpg" width="180" height="50" /></a>
+                </td>
+                
+                
                 <td><a href="pagina_comerciales.jsp"><img src="img/comerciales.jpg" alt="" width="180" height="123" /></a></td>
             </tr>
             <tr>
@@ -47,7 +51,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <td colspan="7">
 
                     <table width="50%" border="0" align="center">
-                        <form action="Listadoventas1.jsp" method="post">
+                       <form action="Listadoventas1.jsp" method="post">
                             <tr align="center">
                                 <td colspan="2"><h3>Listado de ventas</h3></td>
                             </tr>
@@ -79,6 +83,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                             </tr>
                         </form>
                     </table>
+
+
+
+
+
                 </td>
             </tr>
 
@@ -92,4 +101,3 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
     </body>
 </html>
-

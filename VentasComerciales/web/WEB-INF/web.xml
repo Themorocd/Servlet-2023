@@ -5,16 +5,24 @@
         <servlet-class>controlador.ServletLogin</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Servletlistadoventas</servlet-name>
-        <servlet-class>controlador.Servletlistadoventas</servlet-class>
+        <servlet-name>ServletVentas</servlet-name>
+        <servlet-class>controlador.ServletVentas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletProducto</servlet-name>
+        <servlet-class>controlador.ServletProducto</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServletLogin</servlet-name>
         <url-pattern>/ServletLogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Servletlistadoventas</servlet-name>
-        <url-pattern>/Servletlistadoventas</url-pattern>
+        <servlet-name>ServletVentas</servlet-name>
+        <url-pattern>/ServletVentas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletProducto</servlet-name>
+        <url-pattern>/ServletProducto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

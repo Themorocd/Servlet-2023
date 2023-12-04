@@ -1,5 +1,3 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="vista.Productos"%>
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -11,9 +9,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Documento sin título</title>
         <%
-        String sql1 = "Select * from productos";
-        ArrayList<Productos>productos = BBDD.BD.consultaProductos(sql1);
-       
+        ServletContext contexto = getServletContext();
+        
+        String producto = request.getParameter("prod");
+        contexto.setAttribute("producto", producto);
+        
         %>
     </head>
 
@@ -51,36 +51,42 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <td colspan="7">
 
                     <table width="50%" border="0" align="center">
-                       <form action="Modificarproducto2.jsp" method="post">
+                        <form action="Modiproducto" method="post">
                             <tr align="center">
-                                <td colspan="2"><h3>Listado de ventas</h3></td>
+                                <td colspan="2"><h3></h3></td>
                             </tr>
-                           
-                            <tr>
-                                
-                                <td align="center">
-                                    <label>Producto:</label>
-                                    <select id="prod" name="prod">
-                                        <option value="producto">Selecciona un producto</option>
-                                        <%
-                                
-                                for (Productos elem : productos) {
-     
-                                %>
-                                        <option value="<%=elem.getReferencia()%>"><%=elem.getNombre()%>-<%= elem.getDescripcion() %></option>
-                                         <%}%>
-                                    </select>
-                                </td>
-                                   
-                            </tr>
-                           
                             
+                            <tr>
+                                <td align="center">
+                                    <label>Nombre</label>
+                                    <input type="text" name="nombre" pattern="[a-zA-Z ]+" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <label>Descripcion</label>
+                                    <input type="text" name="texto" pattern="[a-zA-Z ]+" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <label>Precio</label>
+                                    <input type="text" name="precio" pattern="[0-9 ]+" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <label>Descuento</label>
+                                    <input type="text" name="descuento" pattern="[0-9 ]+" required>
+                                </td>
+                            </tr>
                             <tr>
                                 <td colspan="2" align="center">
                                     <input name="aceptar" type="submit" value="aceptar" />
                                     <input name="cancelar" type="reset" value="cancelar" />
                                 </td>
                             </tr>
+
                         </form>
                     </table>
 

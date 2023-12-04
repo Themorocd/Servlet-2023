@@ -36,16 +36,51 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             </tr>
             <tr>
                 <td colspan="7" bgcolor="#CCCCCC">&nbsp;</td>
-            </tr>
+             </tr>
             <tr>
                 <td colspan="7">
 
                     <table width="50%" border="0" align="center">
-                        <form action="ServletLogin" method="post">
+                        <form action="ServletComerciales" method="post">
                             <tr align="center">
                                 <td colspan="2"><h3></h3></td>
                             </tr>
-
+                            <tr>
+                                <td align="center">
+                                    <label>Codigo</label>
+                                    <input type="text" name="codigo" pattern="[a-zA-Z0-9 ]+" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <label>Nombre</label>
+                                    <input type="text" name="nombre" pattern="[a-zA-Z ]+" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <label>Sueldo</label>
+                                    <input type="text" name="sueldo" pattern="[0-9 ]+" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <label>Fecha de nacimiento</label>
+                                    <input type="date" name="fecha"  required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <label>Numero de hijos</label>
+                                    <input type="text" name="hijos" pattern="[0-9 ]+" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <input name="aceptar" type="submit" value="aceptar" />
+                                    <input name="cancelar" type="reset" value="cancelar" />
+                                </td>
+                            </tr>
 
                         </form>
                     </table>

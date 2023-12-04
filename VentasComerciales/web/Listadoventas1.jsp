@@ -74,9 +74,9 @@
                             <td><%= elem.getComercial()%></td>
                             <td><%= elem.getCantidad()%></td>
                             <td><%= elem.getPrecio()%></td>
-                            <td><%= elem.getTotal()%></td>
+                            <td><%= Math.floor(Double.parseDouble(elem.getTotal()))/100%></td>
                             <td><%= elem.getDescuento()%></td>
-                            <td><%= elem.getTotaldescuento()%></td>
+                            <td><%= Math.floor(Double.parseDouble(elem.getTotaldescuento()))/100%></td>
                         </tr>
                         <%}%>
 

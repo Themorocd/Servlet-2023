@@ -199,4 +199,64 @@ public class BD {
 
     }
 
+    public static boolean modificar(String nombre, String descripcion, String precio, String descuento, String producto) {
+        Connection cnn = null;
+
+        try {
+            cnn = CrearConexion();
+
+            
+            String sql = "UPDATE productos SET nombre = ?, descripcion = ?, precio = ?, descuento = ? WHERE referencia = ?";
+            PreparedStatement smt;
+            smt = cnn.prepareStatement(sql);
+            
+            smt.setString(1, nombre);
+            smt.setString(2, descripcion);
+            smt.setString(3, precio);
+            smt.setString(4, descuento);
+            smt.setString(5, producto);
+            
+            int filas = smt.executeUpdate();
+            
+            if (filas > 0) {
+                
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
+
+    }
+
+    public static boolean insertarComerciales(String Codigo, String nombre, String sueldo, String fecha, String hijos) {
+         Connection cnn = null;
+
+        try {
+            cnn = CrearConexion();
+
+            String sql = "Insert into comerciales(codigo,nombre,salario,hijos,fNacimiento) Values (?,?,?,?,?)";
+            
+            PreparedStatement smt;
+            smt = cnn.prepareStatement(sql);
+            smt.setString(1, Codigo);
+            smt.setString(2, nombre);
+            smt.setString(3, sueldo);
+            smt.setString(4, hijos);
+            smt.setString(5, fecha);
+            
+            int filas = smt.executeUpdate();
+            
+            if (filas > 0) {
+                
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
+    }
+
 }

@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="vista.Comerciales"%>
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -8,6 +10,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Documento sin título</title>
+         <%
+        String sql2 = "Select * from comerciales";
+        ArrayList<Comerciales>comercial = BBDD.BD.consultaComerciales(sql2);
+        
+        %>
     </head>
 
     <body>
@@ -41,13 +48,44 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <td colspan="7">
 
                     <table width="50%" border="0" align="center">
-                        <form action="ServletLogin" method="post">
-                            <tr align="center">
-                                <td colspan="2"><h3></h3></td>
-                            </tr>
+                        <tr align="center">
+                            <td colspan="2"><h3>Listado de Comerciales</h3></td>
+                        </tr>
+
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Salario</th>
+                            <th>Hijos</th>                           
+                            
+                            
+                            
+                        </tr>
+                         <%
+                        for (Comerciales elem : comercial) {
+                                
+                            
+                        
+                        %>
+                        <tr>
+                           
+                            <td><%= elem.getCodigo()%></td>
+                            <td><%= elem.getNombre()%></td>
+                            <td><%= elem.getSalario()%></td>
+                            <td><%= elem.getHijos()%></td>
+                            
+                            
+                        </tr>
+                        <%}%>
 
 
-                        </form>
+
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input name="aceptar" type="submit" value="aceptar" />
+                                <input name="cancelar" type="reset" value="cancelar" />
+                            </td>
+                        </tr>
                     </table>
 
 

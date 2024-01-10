@@ -4,7 +4,6 @@
  */
 package BBDD;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,7 +14,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author moro-
+ * @author Andres
  */
 public class BD {
     public static String usuario = "root";

@@ -112,6 +112,32 @@ public class BD {
         return listaedi;
         
     }
+    public static ArrayList<titulos> buscatitulo (String sql){
+    
+        titulos titu;
+        
+        Connection cnn = null;
+        
+        ArrayList<titulos> listatitu = new ArrayList<titulos>();
+    
+    
+       try {
+            cnn = CrearConexion();
+             PreparedStatement pst = cnn.prepareStatement(sql);
+            
+             ResultSet rs=pst.executeQuery();
+            while(rs.next()){
+                titu=new titulos(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+                listatitu.add(titu);
+
+    }
+        } catch (SQLException ex) {
+            Logger.getLogger(BD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listatitu;
+        
+    }
+    
     
     public static ArrayList<titulos> consultatitulo (String titulo){
         

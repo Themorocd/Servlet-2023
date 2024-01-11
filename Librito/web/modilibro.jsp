@@ -38,7 +38,7 @@
                     <form action="modilibro" method="POST">
                         <%
                             String sql = "SELECT * FROM titulos";
-                            ArrayList<titulos> listatitu = BBDD.BD.consultatitulo(sql);
+                            ArrayList<titulos> listatitu = BBDD.BD.buscatitulo(sql);
 
                         %>
                         

@@ -13,12 +13,12 @@
         <title>Inicio de Sesión - Gestion de Biblioteca</title>
     </head>
     <%
-        titulos titus= (titulos) getServletContext().getAttribute("id");
-        //String titulo = request.getParameter("id");
-        String sql="SELECT * FROM titulos WHERE Titulo='"+titus+"'";
-        ArrayList<titulos> listatitulo = BBDD.BD.consultatitulo(sql);
+        
+        String titulo =(String) getServletContext().getAttribute("id");
+        ArrayList<titulos> listatitulo = BBDD.BD.consultatitulo(titulo);
     %>
     <body>
+        <div>
         <table width="100%" height="100%" border="0" align = "center">
             <tr>
                 <td bgcolor="#007bff" colspan="2" align="center" height="100">
@@ -31,7 +31,7 @@
                 </td>
             </tr>
             <tr>
-                <td align="center">
+                <td valign="top" align="center">
                     <a href="altalibro.jsp">Alta de libro</a>
                     <a href="modilibro.jsp">Modificar libro</a>
                     <a href="borrolibro.jsp">Baja de libro</a>
@@ -41,8 +41,7 @@
             <tr align="center">
                 <td>ISBN</td>
                 <td>Titulo</td>
-                <td>IDautor</td>
-                <td>AñoEdicion</td>
+                <td>IDautor</td>               
                 <td>Descripcion</td>
                 <td>IDeditorial</td>
 
@@ -52,12 +51,12 @@
             <tr align="center">
                 <td><%=titu.getIsbn()%></td>
                 <td><%=titu.getTitulo()%></td>
-                <td><%=titu.getIdautor()%></td>
-                <td><%=titu.getAño()%></td>
+                <td><%=titu.getIdautor()%></td>     
                 <td><%=titu.getDescripcion()%></td>
                 <td><%=titu.getIdeditorial()%></td>
                 <%}%>
             </tr>
         </table>
+        </div>
     </body>
 </html>

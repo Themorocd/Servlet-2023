@@ -25,6 +25,14 @@ public class titulos {
         this.ideditorial = ideditorial;
     }
 
+    public titulos(String isbn, String titulo, String idautor,String descripcion, String ideditorial) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.idautor = idautor;
+        this.descripcion = descripcion;
+        this.ideditorial = ideditorial;
+    }
+
     public String getIsbn() {
         return isbn;
     }

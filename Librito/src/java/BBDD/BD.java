@@ -113,9 +113,9 @@ public class BD {
         
     }
     
-    public static ArrayList<titulos> consultatitulo (String sql){
+    public static ArrayList<titulos> consultatitulo (String titulo){
         
-        titulos titu = null;
+        titulos titu;
         
         Connection cnn = null;
         
@@ -123,10 +123,12 @@ public class BD {
 
         try {
             cnn = CrearConexion();
+            String sql = "Select titulos.Titulo, titulos.ISBN,  CONCAT(autor.Nombre, ' ', autor.Apellido) AS NombreAutor, editorial.NameEditorial, titulos.Descripcion, editorial.NameEditorial from titulos,autor,editorial where (titulos.IDautor=autor.IDAutor) AND (titulos.IDeditorial=editorial.IDEditorial) AND (titulos.Titulo like ?)";
              PreparedStatement pst = cnn.prepareStatement(sql);
+             pst.setString(1, "%"+titulo+"%");
              ResultSet rs=pst.executeQuery();
             while(rs.next()){
-                titu=new titulos(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+                titu=new titulos(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
                 listatitu.add(titu);
 
     }

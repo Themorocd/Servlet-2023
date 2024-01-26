@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -23,23 +24,22 @@ public class zona_localizacion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        ServletContext contexto = getServletContext();
-        RequestDispatcher rd;
         
+        HttpSession sesion = request.getSession();
         String menus = request.getParameter("menus");
         String sandwiches = request.getParameter("sandwiches");
         String complementos = request.getParameter("complementos");
         String ensaladas = request.getParameter("ensaladas");
         String bebidas = request.getParameter("bebidas");
         
-        contexto.setAttribute("menus", menus);
-        contexto.setAttribute("sandwiches", sandwiches);
-        contexto.setAttribute("complementos", complementos);
-        contexto.setAttribute("ensaladas", ensaladas);
-        contexto.setAttribute("bebidas", bebidas);
+        sesion.setAttribute("menus", menus);
+        sesion.setAttribute("sandwiches", sandwiches);
+        sesion.setAttribute("complementos", complementos);
+        sesion.setAttribute("ensaladas", ensaladas);
+        sesion.setAttribute("bebidas", bebidas);
 
-        rd = contexto.getRequestDispatcher("/zona_localizacion.jsp");
-        rd.forward(request, response);
+        getServletContext().getRequestDispatcher("/zona_localizacion.jsp").forward(request, response);
+        
     }
 
 }

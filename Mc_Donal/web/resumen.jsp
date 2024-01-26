@@ -14,11 +14,11 @@
     <body>
         <%
             String nombreUsuario = (String) session.getAttribute("nombre");
-            String menus = (String) application.getAttribute("menus");
-            String sandwiches = (String) application.getAttribute("sandwiches");
-            String complementos = (String) application.getAttribute("complementos");
-            String ensaladas = (String) application.getAttribute("ensaladas");
-            String bebidas = (String) application.getAttribute("bebidas");
+            String menus = (String) session.getAttribute("menus");
+            String sandwiches = (String) session.getAttribute("sandwiches");
+            String complementos = (String) session.getAttribute("complementos");
+            String ensaladas = (String) session.getAttribute("ensaladas");
+            String bebidas = (String) session.getAttribute("bebidas");
 
             if (nombreUsuario == null) {
 
@@ -47,7 +47,7 @@
                 
                 %>
                 <tr>
-                    <td>Menu: <%=menus%></td>
+                    <td>Menu: ${menus}</td>
 
                 </tr>
                 <%}%>
@@ -55,7 +55,7 @@
                 if(!sandwiches.equals("0")){
                 %>
                 <tr>
-                    <td>sandwiches: <%=sandwiches%></td>
+                    <td>sandwiches: ${sandwiches}</td>
 
                 </tr>
                 <%}%>
@@ -63,7 +63,7 @@
                 if(!complementos.equals("0")) {
                 %>
                 <tr>
-                    <td>complementos: <%=complementos%></td>
+                    <td>complementos: ${complementos}</td>
 
                 </tr>
                 <%}%>
@@ -71,7 +71,7 @@
                 if(!ensaladas.equals("0")){
                 %>
                 <tr>
-                    <td>ensaladas: <%=ensaladas%></td>
+                    <td>ensaladas: ${ensaladas}</td>
 
                 </tr>
                 <%}%>
@@ -79,7 +79,7 @@
                 if(!bebidas.equals("0")){
                 %>
                 <tr>
-                    <td>bebidas: <%=bebidas%></td>
+                    <td>bebidas: ${bebidas}</td>
 
                 </tr>
                 <%}%>

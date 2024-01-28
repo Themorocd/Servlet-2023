@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import mod.pizza;
 
 /**
  *
@@ -41,7 +43,7 @@ public class BD {
         
         try {
             cnn = CrearConexion();
-            String sql = "INSERT INTO usuarios(User_name, User_password, User_address, `User_email`, `User_phone`) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO usuarios(User_name, User_password, User_address, User_email, User_phone) VALUES (?,?,?,?,?)";
 
             PreparedStatement pst = cnn.prepareStatement(sql);
             
@@ -49,8 +51,8 @@ public class BD {
             pst.setString(1, nombre);
             pst.setString(2, pass);
             pst.setString(3, dire);
-            pst.setString(4, tel);
-            pst.setString(5, gmail);
+            pst.setString(4, gmail);
+            pst.setString(5, tel);
             
             int rs = pst.executeUpdate();
             if(rs > 0 ){
@@ -69,5 +71,194 @@ public class BD {
         
         
     }
+
+    public static boolean compruebauser(String sql) {
+       
+        
+        
+        Connection cnn = null;
+        
+        try {
+            cnn = CrearConexion();
+            PreparedStatement pst = cnn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+                return true;
+            }
+            
+            
+        } catch (Exception e) {
+        }
+        
+        
+        return false;
+        }
+ 
     
+    public static ArrayList<pizza> consultacarne(String sql){
+        
+        
+        Connection cnn = null;
+        
+        ArrayList<pizza> List =null;
+        
+        pizza piz = null;
+        
+        try {
+            List = new ArrayList<pizza>();
+            cnn = CrearConexion();
+            PreparedStatement pst = cnn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            
+            while (rs.next()) {                
+                piz = new pizza(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4));
+                List.add(piz);
+            }
+            
+            
+            
+        } catch (Exception e) {
+        }
+        
+        return List;
+            
+        
+    }
+      public static ArrayList<pizza> consultaqueso(String sql1){
+        
+        
+        Connection cnn = null;
+        
+        ArrayList<pizza> List =null;
+        
+        pizza piz = null;
+        
+        try {
+            List = new ArrayList<pizza>();
+            cnn = CrearConexion();
+            PreparedStatement pst = cnn.prepareStatement(sql1);
+            ResultSet rs = pst.executeQuery();
+            
+            while (rs.next()) {                
+                piz = new pizza(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4));
+                List.add(piz);
+            }
+            
+            
+            
+        } catch (Exception e) {
+        }
+        
+        return List;
+            
+        
+    }
+       public static ArrayList<pizza> consultaclasi(String sql2){
+        
+        
+        Connection cnn = null;
+        
+        ArrayList<pizza> List =null;
+        
+        pizza piz = null;
+        
+        try {
+            List = new ArrayList<pizza>();
+            cnn = CrearConexion();
+            PreparedStatement pst = cnn.prepareStatement(sql2);
+            ResultSet rs = pst.executeQuery();
+            
+            while (rs.next()) {                
+                piz = new pizza(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4));
+                List.add(piz);
+            }
+            
+            
+            
+        } catch (Exception e) {
+        }
+        
+        return List;
+            
+        
+    }
+       public static ArrayList<pizza> consultainfantil(String sql3){
+        
+        
+        Connection cnn = null;
+        
+        ArrayList<pizza> List =null;
+        
+        pizza piz = null;
+        
+        try {
+            List = new ArrayList<pizza>();
+            cnn = CrearConexion();
+            PreparedStatement pst = cnn.prepareStatement(sql3);
+            ResultSet rs = pst.executeQuery();
+            
+            while (rs.next()) {                
+                piz = new pizza(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4));
+                List.add(piz);
+            }
+            
+            
+            
+        } catch (Exception e) {
+        }
+        
+        return List;
+            
+        
+    }
+     public static ArrayList<pizza> consultagluten(String sql4){
+        
+        
+        Connection cnn = null;
+        
+        ArrayList<pizza> List =null;
+        
+        pizza piz = null;
+        
+        try {
+            List = new ArrayList<pizza>();
+            cnn = CrearConexion();
+            PreparedStatement pst = cnn.prepareStatement(sql4);
+            ResultSet rs = pst.executeQuery();
+            
+            while (rs.next()) {                
+                piz = new pizza(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4));
+                List.add(piz);
+            }
+            
+            
+            
+        } catch (Exception e) {
+        }
+        
+        return List;
+            
+        
+    }
+
+    public static boolean compruebatel(String sql) {
+         Connection cnn = null;
+        
+        try {
+            cnn = CrearConexion();
+            PreparedStatement pst = cnn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+                return true;
+            }
+            
+            
+        } catch (Exception e) {
+        }
+        
+        
+        return false;
+        }
 }

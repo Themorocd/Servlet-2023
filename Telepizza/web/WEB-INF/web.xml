@@ -4,9 +4,41 @@
         <servlet-name>Altausuario</servlet-name>
         <servlet-class>modelo.Altausuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Servletinicio</servlet-name>
+        <servlet-class>modelo.Servletinicio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>pedidos</servlet-name>
+        <servlet-class>modelo.pedidos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>envio</servlet-name>
+        <servlet-class>modelo.envio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>confirmoteldomi</servlet-name>
+        <servlet-class>modelo.confirmoteldomi</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Altausuario</servlet-name>
         <url-pattern>/Altausuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Servletinicio</servlet-name>
+        <url-pattern>/Servletinicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pedidos</servlet-name>
+        <url-pattern>/pedidos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>envio</servlet-name>
+        <url-pattern>/envio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>confirmoteldomi</servlet-name>
+        <url-pattern>/confirmoteldomi</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

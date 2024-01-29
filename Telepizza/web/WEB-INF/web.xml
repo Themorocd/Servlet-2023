@@ -20,6 +20,10 @@
         <servlet-name>confirmoteldomi</servlet-name>
         <servlet-class>modelo.confirmoteldomi</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>confirmotelreco</servlet-name>
+        <servlet-class>modelo.confirmotelreco</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Altausuario</servlet-name>
         <url-pattern>/Altausuario</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>confirmoteldomi</servlet-name>
         <url-pattern>/confirmoteldomi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>confirmotelreco</servlet-name>
+        <url-pattern>/confirmotelreco</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -64,7 +64,7 @@ public class Servletinicio extends HttpServlet {
             
             
         } else{
-            rd = contexto.getRequestDispatcher("error.html");
+            rd = contexto.getRequestDispatcher("/error.html");
             rd.forward(request, response);
         }
         

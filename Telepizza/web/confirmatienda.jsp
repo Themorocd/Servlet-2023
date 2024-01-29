@@ -1,7 +1,7 @@
 <%-- 
-    Document   : confirmardomi
-    Created on : 28 ene 2024, 17:01:04
-    Author     : moro-
+    Document   : confirmatienda
+    Created on : 29 ene. 2024, 9:30:25
+    Author     : Andres
 --%>
 
 <%@page import="java.util.ArrayList"%>
@@ -155,10 +155,10 @@ ServletContext contex=getServletContext();
                 
             </tbody>
             <tr>
-                <td>Total Pedido:<%=totalcarne+totalclasi+totalgluten+totalinfantil+totalqueso+2 %></td>
+                <td>Total Pedido:<%=totalcarne+totalclasi+totalgluten+totalinfantil+totalqueso  %></td>
             </tr>
             <tr>
-                <td>aproximadamente en 30min será servido el pedido en su domicilio</td>
+                <td>aproximadamente en 30min podra recoger su pedido en el local</td>
             </tr>
         </table>
 

@@ -37,7 +37,7 @@ public class BD {
         return cnn;
     }
    
-    public static boolean doyalta(String nombre,String pass,String dire,String tel,String gmail) {
+    public static boolean doyalta(String user,String pass,String dire,String tel,String gmail) {
         
         Connection cnn = null;
         
@@ -48,11 +48,13 @@ public class BD {
             PreparedStatement pst = cnn.prepareStatement(sql);
             
             
-            pst.setString(1, nombre);
+            pst.setString(1, user);
             pst.setString(2, pass);
             pst.setString(3, dire);
             pst.setString(4, gmail);
             pst.setString(5, tel);
+           
+            
             
             int rs = pst.executeUpdate();
             if(rs > 0 ){

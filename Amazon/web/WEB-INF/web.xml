@@ -24,6 +24,10 @@
         <servlet-name>agregarcestavalorados</servlet-name>
         <servlet-class>Controlador.agregarcestavalorados</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Enviodatos</servlet-name>
+        <servlet-class>Controlador.Enviodatos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>inicio</servlet-name>
         <url-pattern>/inicio</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>agregarcestavalorados</servlet-name>
         <url-pattern>/agregarcestavalorados</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Enviodatos</servlet-name>
+        <url-pattern>/Enviodatos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

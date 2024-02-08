@@ -25,8 +25,8 @@ public class agregarcesta extends HttpServlet {
         HttpSession sesion = request.getSession();
         String destacados = request.getParameter("destacados");
         String cantdestacados = request.getParameter("cantdestacados");
-        String vendidos = request.getParameter("vendidos");
-        String cantvendidos = request.getParameter("cantvendidos");
+        //String vendidos = request.getParameter("vendidos");
+        //String cantvendidos = request.getParameter("cantvendidos");
         
         if(destacados!=null && cantdestacados!=null){
             

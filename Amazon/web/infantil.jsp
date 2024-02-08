@@ -73,7 +73,7 @@ ServletContext contex=getServletContext();
                                     
                                 
                             %>
-                            <option value="<%=elem.getTitulo()%>"><%=elem.getTitulo()%></option>
+                            <option value="<%=elem.getIdlibro()%>"><%=elem.getTitulo()%></option>
                             <%}%>
                         </select>
                     </td>

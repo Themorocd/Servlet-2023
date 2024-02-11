@@ -90,6 +90,7 @@
                         <td></td>
                         <th>TOTAL: <%=total%> €</th>
                     </tr>
+                     <% }%>
                     <%
                         // Guardamos el total en la sesión
                         session.setAttribute("total", total);

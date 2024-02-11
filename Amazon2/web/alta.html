@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="alta" method="POST">
+            <table border="5" align="center">
+                <thead>
+                    <tr>
+                        <th>Alta de Usuario</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nombre</td>
+                        <td><input type="text" name="nombre" pattern="^[a-zA-Z]+" required></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido</td>
+                        <td><input type="text" name="apellido" pattern="^[a-zA-Z]+" required></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre usuario</td>
+                        <td><input type="text" name="Nuser" pattern="^[a-zA-Z]{8,}$" required></td>
+                    </tr>
+
+                    <tr>
+                        <td>Contraseña</td>
+                        <td><input type="text" name="pasw" pattern="^(?=.*[A-Z\d!@#$%^&*()-_+=]).{8,}$" required></td>
+                    </tr>
+                    <tr>
+                        <td>Direcion</td>
+                        <td><input type="text" name="dire" required></td>
+                    </tr>
+                    <tr>
+                        <td>Telefono</td>
+                        <td><input type="tel" name="tele" pattern="^\d{9}$" required></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="email" name="gmail" required></td>
+                    </tr>
+                    <tr>
+                        
+                        <td><input type="submit" value="Acceptar"></td>
+                        <td><input type="reset" value="Borrar"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>

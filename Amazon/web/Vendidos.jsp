@@ -10,6 +10,12 @@
 <%
  String nombreUsuario = (String) session.getAttribute("nombre");
  String apellidoUsuario = (String) session.getAttribute("apellido");
+  ArrayList<Libros> listacompra;
+ listacompra = (ArrayList<Libros>) session.getAttribute("listacompra");
+  int carro = 0;
+  if (listacompra != null) {
+       carro += listacompra.size();
+}
 if (nombreUsuario==null && apellidoUsuario == null) {
     
     RequestDispatcher rd;

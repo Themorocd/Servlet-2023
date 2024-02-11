@@ -9,24 +9,32 @@ package modelo;
  * @author Andres
  */
 public class Libros {
-    String idlibro,idcategoria,titulo,autor,portada;
+    String idcategoria,titulo,autor,portada;
+    int cantdestacados,idlibro;
     double precio;
 
-    public Libros(String idlibro, String idcategoria, String titulo, String autor, double precio,String portada) {
+    public Libros(int idlibro, String idcategoria, String titulo, String autor , double precio, String portada) {
         this.idlibro = idlibro;
         this.idcategoria = idcategoria;
         this.titulo = titulo;
-        this.autor = autor;       
+        this.autor = autor;
         this.precio = precio;
         this.portada = portada;
+        
+       
+        
     }
 
-    public String getIdlibro() {
-        return idlibro;
-    }
-
-    public void setIdlibro(String idlibro) {
+      public Libros(int idlibro, String idcategoria, String titulo, String autor , double precio, String portada,int cantdestacados) {
         this.idlibro = idlibro;
+        this.idcategoria = idcategoria;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.precio = precio;
+        this.portada = portada;
+        this.cantdestacados = cantdestacados;
+       
+        
     }
 
     public String getIdcategoria() {
@@ -61,6 +69,22 @@ public class Libros {
         this.portada = portada;
     }
 
+    public int getCantdestacados() {
+        return cantdestacados;
+    }
+
+    public void setCantdestacados(int cantdestacados) {
+        this.cantdestacados = cantdestacados;
+    }
+
+    public int getIdlibro() {
+        return idlibro;
+    }
+
+    public void setIdlibro(int idlibro) {
+        this.idlibro = idlibro;
+    }
+
     public double getPrecio() {
         return precio;
     }
@@ -68,7 +92,11 @@ public class Libros {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
     
+    
+   
+
     
     
     

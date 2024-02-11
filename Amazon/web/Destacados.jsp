@@ -10,6 +10,12 @@
 <%
  String nombreUsuario = (String) session.getAttribute("nombre");
  String apellidoUsuario = (String) session.getAttribute("apellido");
+ ArrayList<Libros> listacompra;
+ listacompra = (ArrayList<Libros>) session.getAttribute("listacompra");
+ int carro = 0;
+  if (listacompra != null) {
+       carro += listacompra.size();
+}
 if (nombreUsuario==null && apellidoUsuario == null) {
     
     RequestDispatcher rd;
@@ -51,7 +57,7 @@ ServletContext contex=getServletContext();
                 <%
                 String sql = "Select * from libros where idcategoria = '1'";
                 ArrayList<Libros>Listdestacados = BBDD.BD.consultadestacados(sql);
-                session.setAttribute("Listdestacados", Listdestacados);
+                
                 %>
                 <tr>
                     <td>Libros destacados de este mes</td>
@@ -82,9 +88,14 @@ ServletContext contex=getServletContext();
                 </tr>
                 <tr>
                     <td><select name="cantdestacados" id="cantdestacados">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            
+                            <%
+                            for (int x = 1; x < 10; x++) {
+                        %>
+                        <option value="<%=x%>"><%=x%></option>
+                        <%
+                            }
+                        %>
                         </select>
                     </td>
                 </tr>

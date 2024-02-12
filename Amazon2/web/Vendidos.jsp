@@ -84,7 +84,7 @@
                     <td><select name="cantidad" id="cantidad">
                             
                             <%
-                            for (int x = 0; x < 10; x++) {
+                            for (int x = 1; x < 10; x++) {
                         %>
                         <option value="<%=x%>"><%=x%></option>
                         <%

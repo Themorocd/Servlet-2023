@@ -41,7 +41,7 @@
     </head>
     <body>
         <table border="5" align="center">
-            <form action="Enviodatos" method="POST">
+            <form action="actualizar" method="POST">
                 <thead>
                     <tr>
                         <th>Amazon</th>
@@ -73,7 +73,23 @@
                     <tr>
                         <td><img src="images/<%=elem.getPortada()%>.jpg"></td>
                         <td><%=elem.getTitulo()%></td>
-                        <td><%=elem.getCantdestacados()%></td>
+                        <td>
+                            <select name="id_<%=elem.getIdlibro()%>">
+                                <option hidden value="<%=elem.getCantdestacados()%>"><%=elem.getCantdestacados()%></option>
+                              <%
+                              
+                              for (int x = 0; x < 10; x++) {
+                                      
+                                  
+                              
+                              
+                              %>
+                              <option value="<%=x%>"><%=x%></option>
+                              <%}%>
+                            </select>
+
+                            
+                        </td>
                         <%
                             double can = elem.getCantdestacados();
                             double precio = (elem.getPrecio()) * (can);
@@ -98,9 +114,15 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="submit" value="Confirmar Pedido">
+                            <input type="submit" value="Actualizar Pedido">
                         </td>
                     </tr>
+                         </form> 
+                    <form action="Enviodatos" method="POST">
+                    <tr>
+                        <td><input type="submit" value="Tramitar Pedido"></td>
+                    </tr>
+                   
                 </tbody>
             </form>
         </table>

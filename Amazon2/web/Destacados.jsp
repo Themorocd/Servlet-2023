@@ -4,6 +4,8 @@
     Author     : moro-
 --%>
 
+<%@page import="Modelo.Libros"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
 
@@ -64,7 +66,7 @@
                 </tr>
                
                 <tr>
-                    <td><select name="destacados" id="destacados">
+                    <td><select name="idlibro" id="idlibro">
                             <%
                             for (Libros elem : Listdestacados) {
                                     
@@ -79,10 +81,10 @@
                     <td>Cantidad</td>
                 </tr>
                 <tr>
-                    <td><select name="cantdestacados" id="cantdestacados">
+                    <td><select name="cantidad" id="cantidad">
                             
                             <%
-                            for (int x = 1; x < 10; x++) {
+                            for (int x = 0; x < 10; x++) {
                         %>
                         <option value="<%=x%>"><%=x%></option>
                         <%

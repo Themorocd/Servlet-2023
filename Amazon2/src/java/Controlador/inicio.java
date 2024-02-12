@@ -37,7 +37,7 @@ public class inicio extends HttpServlet {
         String user = request.getParameter("user");
         String pass = request.getParameter("pass");
         
-        String sql = "SELECT * FROM usuarios WHERE User_email +='"+user+"' OR User_phone='"+user+"' AND User_password='"+pass+"'";
+        String sql = "SELECT * FROM usuarios WHERE User_email ='"+user+"' OR User_phone='"+user+"' AND User_password='"+pass+"'";
         
         ArrayList<usuarios> List = BBDD.BD.compruebauser(sql);
         

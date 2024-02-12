@@ -4,9 +4,25 @@
         <servlet-name>inicio</servlet-name>
         <servlet-class>Controlador.inicio</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>agregarcesta</servlet-name>
+        <servlet-class>Controlador.agregarcesta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Enviodatos</servlet-name>
+        <servlet-class>Controlador.Enviodatos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>inicio</servlet-name>
         <url-pattern>/inicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregarcesta</servlet-name>
+        <url-pattern>/agregarcesta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Enviodatos</servlet-name>
+        <url-pattern>/Enviodatos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

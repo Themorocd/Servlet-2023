@@ -4,6 +4,7 @@
  */
 package BBDD;
 
+import Modelo.Libros;
 import Modelo.usuarios;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -64,4 +65,115 @@ public class BD {
         return List;
         
     }
+    
+    
+    public static ArrayList<Libros> consultadestacados(String sql){
+        
+        Connection cnn = null;
+        
+        Libros lib = null;
+        
+        ArrayList<Libros> List = new ArrayList<Libros>();
+        
+        try {
+            cnn = CrearConexion();
+            
+            PreparedStatement pst = cnn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            
+            while (rs.next()) {                
+                lib = new Libros(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getString(6));
+                List.add(lib);
+            }
+            
+        } catch (Exception e) {
+        }
+        return List;
+        
+        
+    }
+
+    public static Libros buscolibro(String sql, int cantdestacados) {
+          
+        Connection cnn = null;
+        
+        Libros lib = null;
+        
+        try {
+            cnn = CrearConexion();
+            
+            PreparedStatement pst = cnn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            
+            while (rs.next()) {                
+                lib = new Libros(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getString(6), cantdestacados);
+         }
+        } catch (Exception e) {
+        }
+        
+        
+        
+        
+        return lib;
+    }
+
+    public static void altapedido(String sql1) {
+        
+        Connection cnn = null;
+        
+        try {
+            cnn = CrearConexion();
+            
+            PreparedStatement pst = cnn.prepareStatement(sql1);
+            pst.executeUpdate();
+        } catch (Exception e) {
+        }
+
+    }
+
+    public static int consultaidpedido(String sql2) {
+       
+        int IdPedido = 0;
+        
+        Connection cnn = null;
+        
+        try {
+            cnn = CrearConexion();
+            
+            PreparedStatement pst = cnn.prepareStatement(sql2);
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+                IdPedido = rs.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+    
+
+        return IdPedido;
+          
+    }
+
+    public static void altadetallepedidos(int idpedido, int idlibro, int cantidad, double preciounidad) {
+       
+    
+        Connection cnn = null;
+        
+        String sql3 = "INSERT INTO detalles_pedido (IdPedido, IdProducto, PrecioUnidad, Cantidad) VALUES ('" + idpedido + "','" + idlibro + "','" + preciounidad + "','" + cantidad + "')";
+        
+        try {
+            cnn = CrearConexion();
+            
+            PreparedStatement pst = cnn.prepareStatement(sql3);
+            pst.executeUpdate();
+        } catch (Exception e) {
+        }
+    
+    
+    
+    }
+    
+    
+    
+    
 }

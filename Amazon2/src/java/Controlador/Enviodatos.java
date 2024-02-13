@@ -48,7 +48,7 @@ public class Enviodatos extends HttpServlet {
             
         }
         
-        String sql1 = "INSERT INTO pedidos (IdCliente, FechaPedido) VALUES ('" + id + "', '" + fecha + "')";
+        String sql1 = "INSERT INTO pedidos (idCliente, fecha) VALUES ('" + id + "', '" + fecha + "')";
         
         BBDD.BD.altapedido(sql1);
         
@@ -68,7 +68,7 @@ public class Enviodatos extends HttpServlet {
         }
         
         listacompra.clear();
-        
+        sesion.invalidate();
         getServletContext().getRequestDispatcher("/Confirmocompra.jsp").forward(request, response);
         
         

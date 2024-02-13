@@ -159,7 +159,7 @@ public class BD {
     
         Connection cnn = null;
         
-        String sql3 = "INSERT INTO detalles_pedido (IdPedido, IdProducto, PrecioUnidad, Cantidad) VALUES ('" + idpedido + "','" + idlibro + "','" + preciounidad + "','" + cantidad + "')";
+        String sql3 = "INSERT INTO detalle_pedidos (idPedido, idProducto, precio_unidad, cantidad) VALUES ('" + idpedido + "','" + idlibro + "','" + preciounidad + "','" + cantidad + "')";
         
         try {
             cnn = CrearConexion();
